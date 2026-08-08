@@ -2,11 +2,13 @@
 
 import { IFormInput } from "@/type"
 import { SubmitHandler, useForm } from "react-hook-form"
+import { useRouter } from "next/navigation"
 
 
 const LoginForm = () => {
 
 
+    const router = useRouter()
 
     const { handleSubmit, register, formState: { errors } } = useForm<IFormInput>()
 
@@ -14,6 +16,8 @@ const LoginForm = () => {
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
 
         console.log(data)
+
+        router.replace('/dashboard')
 
     }
 
