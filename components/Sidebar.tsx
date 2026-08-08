@@ -11,14 +11,17 @@ import { MdCategory, MdAdminPanelSettings, MdDashboard, MdOutlineOpenInFull, MdC
 import { FaUsers } from "react-icons/fa";
 
 import { SiBrandfolder } from "react-icons/si";
+import Image from "next/image";
 
 
 const Sidebar = () => {
 
+    const userName = "John Doe"
+
     const [isOpen, setIsOpen] = useState<boolean>(true)
 
     return (
-        <aside className={`bg-white p-4 m-3 rounded shadow-lg ${isOpen ? 'w-64' : 'w-20'} *:transition-all duration-300 overflow-hidden ${isOpen ? '' : 'flex flex-col items-center'}`}>
+        <aside className={`bg-white h-170 p-4 m-3 rounded shadow-lg ${isOpen ? 'w-64' : 'w-20'} *:transition-all duration-300 overflow-hidden flex flex-col ${!isOpen ? "items-center" : ""}`}>
             <h2 className="text-blue-600 font-bold text-2xl flex items-center gap-1">
                 <MdDashboard />
                 {isOpen && "Dashboard"}
@@ -54,7 +57,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/users'} className={`flex gap-1 items-center text-[16px]  my-4 `}>
+                    <Link href={'/users'} className={`flex gap-1 items-center text-[16px]  my-4 bg-blue-200 text-blue-700 p-1 rounded`}>
                         <FaUsers
                             size={20}
                             title="Users"
@@ -73,10 +76,28 @@ const Sidebar = () => {
                 </li>
             </ul>
 
+
+            <section
+                className={`flex items-center gap-2 mt-auto `}
+            >
+                <Image
+                    src="/user.jpg"
+                    alt="brand"
+                    width={40}
+                    height={40}
+                    className={`rounded-full my-4`}
+                />
+                <p className={`text-[16px] font-semibold ${isOpen ? '' : 'hidden'}`}>{userName}</p>
+            </section>
+
+            
             <button onClick={() => setIsOpen(!isOpen)} className="bg-blue-500 text-white px-2 py-2 rounded mt-4">
-                {isOpen ? <MdCloseFullscreen
+                {isOpen ? <div className="flex items-center gap-1">
+                    <MdCloseFullscreen
                     size={20}
-                    title="collapse sidebar" /> : <MdOutlineOpenInFull
+                    title="collapse sidebar" />
+                    collapse
+                </div> : <MdOutlineOpenInFull
                     size={20}
                     title="open sidebar" />}
             </button>
