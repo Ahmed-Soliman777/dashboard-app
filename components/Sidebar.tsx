@@ -21,8 +21,8 @@ const Sidebar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(true)
 
     return (
-        <aside className={`bg-white h-170 p-4 m-3 rounded shadow-lg ${isOpen ? 'w-64' : 'w-20'} *:transition-all duration-300 overflow-hidden flex flex-col ${!isOpen ? "items-center" : ""}`}>
-            <h2 className="text-blue-600 font-bold text-2xl flex items-center gap-1">
+        <aside className={`hidden lg:block bg-white h-167 p-4 m-3 rounded shadow-lg ${isOpen ? 'w-64' : 'w-20'} *:transition-all duration-300 overflow-hidden flex flex-col`}>
+            <h2 className={`text-blue-600 font-bold text-2xl flex items-center gap-1 ${!isOpen && 'justify-center'}`}>
                 <MdDashboard />
                 {isOpen && "Dashboard"}
             </h2>
@@ -30,7 +30,7 @@ const Sidebar = () => {
             <ul className="my-5">
 
                 <li>
-                    <Link href={'/products'} className={`flex gap-1 items-center text-[16px]  my-4`}>
+                    <Link href={'/products'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4`}>
                         <AiFillProduct
                             size={20}
                             title="Products"
@@ -39,7 +39,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/categories'} className={`flex gap-1 items-center text-[16px  ]  my-4`}>
+                    <Link href={'/categories'} className={`flex gap-1 items-center text-[16px  ] ${!isOpen && 'justify-center'} my-4`}>
                         <MdCategory
                             size={20}
                             title="Categories"
@@ -48,7 +48,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/brands'} className={`flex gap-1 items-center text-[16px  ]  my-4`}>
+                    <Link href={'/brands'} className={`flex gap-1 items-center text-[16px  ] ${!isOpen && 'justify-center'} my-4`}>
                         <SiBrandfolder
                             size={20}
                             title="Brands"
@@ -57,7 +57,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/users'} className={`flex gap-1 items-center text-[16px]  my-4 bg-blue-200 text-blue-700 p-1 rounded`}>
+                    <Link href={'/users'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4 bg-blue-200 text-blue-700 p-1 rounded`}>
                         <FaUsers
                             size={20}
                             title="Users"
@@ -66,7 +66,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/settings'} className={`flex gap-1 items-center text-[16px]  my-4`}>
+                    <Link href={'/settings'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4`}>
                         <MdAdminPanelSettings
                             size={20}
                             title="Settings"
@@ -90,12 +90,12 @@ const Sidebar = () => {
                 <p className={`text-[16px] font-semibold ${isOpen ? '' : 'hidden'}`}>{userName}</p>
             </section>
 
-            
+
             <button onClick={() => setIsOpen(!isOpen)} className="bg-blue-500 text-white px-2 py-2 rounded mt-4">
                 {isOpen ? <div className="flex items-center gap-1">
                     <MdCloseFullscreen
-                    size={20}
-                    title="collapse sidebar" />
+                        size={20}
+                        title="collapse sidebar" />
                     collapse
                 </div> : <MdOutlineOpenInFull
                     size={20}

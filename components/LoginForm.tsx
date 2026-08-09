@@ -26,33 +26,52 @@ const LoginForm = () => {
 
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="mx-auto w-11/12 md:w-8/12 lg:w-6/12 p-5 bg-white rounded-lg"
+            className="mx-auto w-11/12 md:w-8/12 lg:w-5/12 p-8 bg-white rounded-2xl shadow-xl border border-gray-100 transition-all duration-300"
         >
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Create Account</h2>
 
-            <label htmlFor="first-name">First Name</label>
-            <input
-                type="text"
-                id="first-name"
-                className="w-full border border-[#c0bfbf] rounded px-2 py-1 mt-1"
-                {...register("FirstName", { required: "First name is required" })}
-            />
+            <div className="mb-4">
+                <label htmlFor="first-name" className="block text-sm font-semibold text-gray-600 mb-1">
+                    First Name
+                </label>
+                <input
+                    type="text"
+                    id="first-name"
+                    className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-gray-800 outline-none transition-all duration-300 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                    placeholder="Enter your first name"
+                    {...register("FirstName", { required: "First name is required" })}
+                />
+                {errors.FirstName?.message && (
+                    <div className="text-rose-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+                         {errors.FirstName?.message}
+                    </div>
+                )}
+            </div>
 
-            {errors.FirstName?.message &&
-                <div className="text-red-500 mt-2">{errors.FirstName?.message}</div>
-            }
+            <div className="mb-6">
+                <label htmlFor="last-name" className="block text-sm font-semibold text-gray-600 mb-1">
+                    Last Name
+                </label>
+                <input
+                    type="text"
+                    id="last-name"
+                    className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-gray-800 outline-none transition-all duration-300 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+                    placeholder="Enter your last name"
+                    {...register("LastName", { required: "Last name is required" })}
+                />
+                {errors.LastName?.message && (
+                    <div className="text-rose-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+                         {errors.LastName?.message}
+                    </div>
+                )}
+            </div>
 
-            <label htmlFor="last-name" className="inline-block mt-5">Last Name</label>
-            <input
-                type="text"
-                id="last-name"
-                className="w-full border border-[#c0bfbf] rounded px-2 py-1 mt-1"
-                {...register("LastName", { required: "Last name is required" })}
-            />
-
-            {errors.LastName?.message &&
-                <div className="text-red-500 mt-2">{errors.LastName?.message}</div>
-            }
-            <button className="block mt-5 mx-auto border border-[#c0bfbf] p-2 rounded cursor-pointer transition-all duration-500 hover:bg-green-300 hover:border-green-600 hover:text-green-800 ">Submit</button>
+            <button
+                type="submit"
+                className="w-full bg-blue-600 text-white font-medium py-3 rounded-xl cursor-pointer"
+            >
+                Submit
+            </button>
         </form>
     )
 }

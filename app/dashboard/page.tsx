@@ -2,18 +2,49 @@ import DataCard from "@/components/DataCard"
 import Sidebar from "@/components/Sidebar"
 import Table from "@/components/Table"
 
+
 import { users } from "@/data"
+import { MdAdminPanelSettings, MdCategory, MdDashboard } from "react-icons/md"
+import Link from "next/link"
+import { FaUsers } from "react-icons/fa"
+import { SiBrandfolder } from "react-icons/si"
+import { AiFillProduct } from "react-icons/ai"
+import Image from "next/image"
 
 const page = () => {
-  const username = "John Doe"
+
+  const username: string = "John Doe"
+
 
   return (
-    <main className="flex">
+    <main className="flex flex-col lg:flex-row">
+
+      <h2 className="lg:hidden text-blue-600 font-bold text-2xl flex items-center gap-1 mx-4 mt-4">
+        <MdDashboard />
+        Dashboard
+      </h2>
 
       <Sidebar />
 
       <section className="w-full p-4">
-        <h2 className="font-bold text-xl mb-10">Welcome, {username}</h2>
+
+        <div className="flex items-center gap-5 mb-1 lg:my-4">
+          <h2 className="font-bold text-xl">
+            Welcome, {username}
+          </h2>
+
+          <div>
+            <Image
+              src="/user.jpg"
+              alt="brand"
+              width={40}
+              height={40}
+              className={`rounded-full my-4 lg:hidden`}
+            />
+          </div>
+
+        </div>
+
         <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
           <DataCard
@@ -36,7 +67,51 @@ const page = () => {
 
         </div>
 
-        <Table 
+        <ul className="flex gap-5 items-center justify-center lg:hidden">
+
+          <li>
+            <Link href={'/products'} className={`flex gap-1 items-center text-[16px]  my-4`}>
+              <AiFillProduct
+                size={20}
+                title="Products"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link href={'/categories'} className={`flex gap-1 items-center text-[16px  ]  my-4`}>
+              <MdCategory
+                size={20}
+                title="Categories"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link href={'#'} className={`flex gap-1 items-center text-[16px  ]  my-4`}>
+              <SiBrandfolder
+                size={20}
+                title="Brands"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link href={'#'} className={`flex gap-1 items-center text-[16px]  my-4 bg-blue-200 text-blue-700 p-1 rounded`}>
+              <FaUsers
+                size={20}
+                title="Users"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link href={'#'} className={`flex gap-1 items-center text-[16px]  my-4`}>
+              <MdAdminPanelSettings
+                size={20}
+                title="Settings"
+              />
+            </Link>
+          </li>
+        </ul>
+
+        <Table
           data={users}
           tableTitle="Users Data"
         />

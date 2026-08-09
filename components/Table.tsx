@@ -36,8 +36,8 @@ const Table = ({
     }
 
     return (
-        <div className="shadow-md rounded-lg mt-5 bg-white ">
-            <div className="flex justify-between items-center px-6 py-4">
+        <div className="shadow-md rounded-lg mt-5 bg-white overflow-auto">
+            <div className="flex flex-col md:flex-row md:justify-between items-center px-6 py-4">
                 <h2 className="font-semibold text-lg ">{tableTitle}</h2>
                 <input
                     type="text"
