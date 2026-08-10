@@ -30,7 +30,7 @@ const Sidebar = () => {
             <ul className="my-5">
 
                 <li>
-                    <Link href={'/products'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4`}>
+                    <Link href={'/products'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4 pointer-events-none`}>
                         <AiFillProduct
                             size={20}
                             title="Products"
@@ -39,7 +39,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/categories'} className={`flex gap-1 items-center text-[16px  ] ${!isOpen && 'justify-center'} my-4`}>
+                    <Link href={'/categories'} className={`flex gap-1 items-center text-[16px  ] ${!isOpen && 'justify-center'} my-4 pointer-events-none`}>
                         <MdCategory
                             size={20}
                             title="Categories"
@@ -48,7 +48,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/brands'} className={`flex gap-1 items-center text-[16px  ] ${!isOpen && 'justify-center'} my-4`}>
+                    <Link href={'/brands'} className={`flex gap-1 items-center text-[16px  ] ${!isOpen && 'justify-center'} my-4 pointer-events-none`}>
                         <SiBrandfolder
                             size={20}
                             title="Brands"
@@ -57,7 +57,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/users'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4 bg-blue-200 text-blue-700 p-1 rounded`}>
+                    <Link href={'/users'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4 bg-blue-200 text-blue-700 p-1 rounded pointer-events-none`}>
                         <FaUsers
                             size={20}
                             title="Users"
@@ -66,7 +66,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/settings'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4`}>
+                    <Link href={'/settings'} className={`flex gap-1 items-center text-[16px] ${!isOpen && 'justify-center'} my-4 pointer-events-none`}>
                         <MdAdminPanelSettings
                             size={20}
                             title="Settings"
