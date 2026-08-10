@@ -49,6 +49,9 @@ npm run dev
 - `data.ts` - Sample data definitions
 - `type.ts` - Shared TypeScript types
 
+## Deployment Link
+
+Vercel: https://dashboard-app-puce-psi.vercel.app/
 ---
 
 This README provides a summary of the dashboard app, the main tech stack, and the architecture approach for future scalability.
